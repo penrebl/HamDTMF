@@ -6,6 +6,19 @@ msg="Welcome to the VK3 ACN. Victor Kilo 3 Alpha Charlie November Automated Syst
 
 contactinfo="VK3 ACN. Victor Kilo 3 Alpha Charlie November... E Mail - S H A Y N E DOT N A S H AT G MAIL DOT COM. PRESS 7 TO REPEAT"
 
+#Define Tongue Twisters
+ttwister[0]="I have got a date at a quarter to eight; I'll see you at the gate, so don't be late."
+ttwister[1]="I scream, you scream, we all scream for ice cream."
+ttwister[2]="Xander the xylophonist played his xylophone for the fox."
+ttwister[3]="I wish to wish the wish you wish to wish, but if you wish the wish the witch wishes, I won’t wish the wish you wish to wish."
+ttwister[3]="If two witches were watching two watches, which witch would watch which watch?"
+ttwister[3]="Karl’s colorful kite caught a colossal king-sized koala"
+ttwister[3]="A box of biscuits, a box of mixed biscuits, and a biscuit mixer"
+ttwister[3]="The seething sea ceaseth and thus the seething sea sufficeth us."
+ttwister[3]="Theophilus Thistler the thistle sifter, In sifting a sieveful of unsifted thistles thrust three thousand Thistles through the thick of his thumb."
+
+
+
 nc -l -u 7355 | sox -t raw -esigned-integer -b16 -r 48000 - -esigned-integer -b16 -r 22050 -t raw - | multimon-ng -t raw -a DTMF -f alpha -q - | \
 
 while read line;
@@ -35,7 +48,7 @@ while read line;
 				sleep 2; echo $contactinfo | text2wave | aplay -f S16_LE -r 16000 -c 1 -t raw -D plughw:CARD=Device,DEV=0
 			;;
 			"DTMF: 8")
-				sleep 2; echo s- $callsign - Theophilus Thistler the thistle sifter, In sifting a sieveful of unsifted thistles thrust three thousand Thistles through the thick of his thumb. | text2wave | aplay -f S16_LE -r 16000 -c 1 -t raw -D plughw:CARD=Device,DEV=0
+				sleep 2; echo s- $callsign - `size=${#ttwister[@]}; index=$(($RANDOM % $size)); echo ${ttwister[$index]}` | text2wave | aplay -f S16_LE -r 16000 -c 1 -t raw -D plughw:CARD=Device,DEV=0
 			;;
 			"DTMF: 9")
 				sleep 2; echo $callsign - Number 9 was detected | text2wave | aplay -f S16_LE -r 16000 -c 1 -t raw -D plughw:CARD=Device,DEV=0
@@ -47,7 +60,7 @@ while read line;
 				sleep 2; echo $msg | text2wave | aplay -f S16_LE -r 16000 -c 1 -t raw -D plughw:CARD=Device,DEV=0
 			;;
 			"DTMF: *")
-				sleep 2; echo $callsign - Theophilus thisler, the thistle sister,  | text2wave | aplay -f S16_LE -r 16000 -c 1 -t raw -D plughw:CARD=Device,DEV=0
+				sleep 2; echo $callsign - `size=${#ttwister[@]}; index=$(($RANDOM % $size)); echo ${ttwister[$index]}`  | text2wave | aplay -f S16_LE -r 16000 -c 1 -t raw -D plughw:CARD=Device,DEV=0
 			;;
 		esac
 		
