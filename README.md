@@ -6,11 +6,11 @@ Shayne - VK3ACN
 
 # Requirements - for the most part
 
-GQRX - RTLSDR Receiver software - https://gqrx.dk/
-Netcat - Network swiss army knife - https://netcat.sourceforge.net/
-SoX - Audio transcoding - https://github.com/chirlu/sox
-multimon-ng - Audio frequency digital mode decoder - https://github.com/EliasOenal/multimon-ng
-festival - text-to-speech (tts) software - http://festvox.org/festival/
+- GQRX - RTLSDR Receiver software - https://gqrx.dk/
+- Netcat - Network swiss army knife - https://netcat.sourceforge.net/
+- SoX - Audio transcoding - https://github.com/chirlu/sox
+- multimon-ng - Audio frequency digital mode decoder - https://github.com/EliasOenal/multimon-ng
+- festival - text-to-speech (tts) software - http://festvox.org/festival/
 
 # Project Details
 
